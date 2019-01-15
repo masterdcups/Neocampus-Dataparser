@@ -14,9 +14,9 @@ def temperature(valeur):
         return -1
 
 def luminosite(valeur):
-    if(valeur > 400 and valeur < 2000):
+    if(valeur > 300 and valeur < 750):
         return 0
-    elif(valeur < 500):
+    elif(valeur < 300):
         return -1
     else:
         return 1
