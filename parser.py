@@ -3,7 +3,7 @@ import annotationUnique
 
 def lireFichier(fichierE,fichierS):
 
-    fichier = open(fichierS,"a")
+    fichier = open(fichierS,"w")
 
     with open(fichierE,encoding='utf-8') as f:
         reader = csv.reader(f,delimiter=';')
