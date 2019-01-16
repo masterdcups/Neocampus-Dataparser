@@ -35,33 +35,9 @@ def humidite(valeur):
 
 def annotationCapteur(valeurTemperature, valeurLuminosite, valeurCo2, valeurHumidite):
     annotationRetour = ""
-    
-    #Température
-    if(temperature(valeurTemperature) == 0):
-        annotationRetour += "0"
-    elif(temperature(valeurTemperature) == -1):
-        annotationRetour += "-1"
-    else:
-        annotationRetour += "1"
-    
-    #Luminosité
-    if(luminosite(valeurLuminosite) == 0):
-        annotationRetour += "0"
-    elif(luminosite(valeurLuminosite) == -1):
-        annotationRetour += "-1"
-    else:
-        annotationRetour += "1"
-
-    #Co2
-    if(co2(valeurCo2) == 0):
-        annotationRetour += "0"
-    else:
-        annotationRetour += "1"
-
-    #Humidité
-    if(humidite(valeurHumidite) == 0):
-        annotationRetour += "0"
-    else:
-        annotationRetour += "1"
+    annotationRetour += str(temperature(valeurTemperature))
+    annotationRetour += str(luminosite(valeurLuminosite))
+    annotationRetour += str(co2(valeurCo2))
+    annotationRetour += str(humidite(valeurHumidite))
 
     return annotationRetour;
