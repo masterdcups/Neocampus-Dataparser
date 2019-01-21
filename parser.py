@@ -1,5 +1,7 @@
 import csv
 import annotationUnique
+import vectorisation
+import datetime
 
 def lireFichier(fichierE,fichierS):
 
@@ -15,7 +17,7 @@ def lireFichier(fichierE,fichierS):
         for line in reader:
             #première ligne du fichier qui contient la liste des champs
             if num_ligne == 0:
-                new_line = line[0] + ";" + line[1] + ";" + line[2] + ";" + line[3] + ";" + line[4] + ";" + line[5] + ";annotation\n"
+                new_line = line[0] + ";" + line[1] + ";" + line[2] + ";" + line[3] + ";period;" + line[4] + ";" + line[5] + ";annotation\n"
             
             #creation de l'annotation            
             else:
@@ -27,8 +29,12 @@ def lireFichier(fichierE,fichierS):
                     annotation = annotationUnique.luminosite(float(line[2]))
                 if line[0] == "co2":
                     annotation = annotationUnique.co2(float(line[2]))   
-                                    
-                new_line = line[0] + ";" + line[1] + ";" + line[2] + ";" + line[3] + ";" + line[4] + ";" + line[5] + ";" + str(annotation) + "\n"
+                
+                if (vectorisation.jourNuit(line[3])):
+                    period = "jour"
+                else:
+                    period = "nuit"
+                new_line = line[0] + ";" + line[1] + ";" + line[2] + ";" + line[3] + ";" + period + ";" + line[4] + ";" + line[5] + ";" + str(annotation) + "\n"
 
             #ecriture dans le fichier de sortie    
             fichier.write(new_line)
