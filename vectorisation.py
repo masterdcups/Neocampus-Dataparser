@@ -113,7 +113,7 @@ def parcourirFichier(fichierE,fichierS):
 		luminosity = luminosity / nbluminosity
 		co2 = co2 / nbco2
 		humidity = humidity / nbhumidity
-		new_line = (str(temperature) + ";" + str(luminosity) + ";" + str(co2) + ";" + str(humidity) + ";" + annotationUnique.annotationCapteur(temperature,luminosity,co2,humidity) + "\n")
+		new_line = line[1] +  ";" + line[3] + ";" + line[5] + ";" + str(temperature) + ";" + str(luminosity) + ";" + str(co2) + ";" + str(humidity) + ";" + annotationUnique.annotationCapteur(temperature,luminosity,co2,humidity) + "\n"
 		fichierSortie.write(new_line)
 		
 	fichierSortie.close()			
