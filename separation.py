@@ -31,5 +31,5 @@ def parcourirFichier(fichierE,fichierS):
 
     
 
-lireFichier("C:/Users/Bastien/Desktop/ProjetM2/dataBrut.csv","C:/Users/Bastien/Desktop/ProjetM2/")
+lireFichier("./dataBrut.csv","./")
 

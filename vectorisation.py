@@ -166,6 +166,6 @@ listeE = [ "ilot1.csv","ilot2.csv","ilot3.csv","ouest.csv","57.csv","79.csv" ]
 fichierS = "./dataAgregatAnnote.csv"
 
 for nomCapteur in listeE:
-	fichierE = "C:/Users/Bastien/Desktop/ProjetM2/fichier" + nomCapteur
+	fichierE = "./fichier" + nomCapteur
 	parcourirFichier(fichierE,fichierS)
 

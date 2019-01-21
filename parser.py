@@ -44,5 +44,5 @@ def lireFichier(fichierE,fichierS):
 
     return num_ligne
 
-res = lireFichier("C:/Users/Bastien/Desktop/ProjetM2/dataBrut.csv","C:/Users/Bastien/Desktop/ProjetM2/dataAnnote.csv")
+res = lireFichier("./dataBrut.csv","./dataAnnote.csv")
 print(res)
