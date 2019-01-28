@@ -62,10 +62,14 @@ def humidite(valeur):
         return 0
 
 def annotationCapteur(valeurTemperature, valeurLuminosite, valeurCo2, valeurHumidite):
-    annotationRetour = ""
-    annotationRetour += str(temperature(valeurTemperature))
-    annotationRetour += str(luminosite(valeurLuminosite))
-    annotationRetour += str(co2(valeurCo2))
-    annotationRetour += str(humidite(valeurHumidite))
+    annotationRetour = 0
+    poidTemperature = 0.3
+    poidLuminosite = 0.2
+    poidCo2 = 0.4
+    poidHumidite = 0.1
+    annotationRetour += poidTemperature * temperature(valeurTemperature)
+    annotationRetour += poidLuminosite * luminosite(valeurLuminosite)
+    annotationRetour += poidCo2 * co2(valeurCo2)
+    annotationRetour += poidHumidite * humidite(valeurHumidite)
 
-    return annotationRetour;
+    return str(annotationRetour);
