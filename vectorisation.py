@@ -14,7 +14,7 @@ def jourNuit(date):
 	temps = datetime.datetime(int(date[0] + date[1] + date[2] + date[3]),int(date[5] + date[6]),int(date[8] + date[9]),int(date[11] + date[12]),int(date[14] + date[15] ),int(date[17] + date[18]))
 	return temps.hour > 6 and temps.hour < 20
 	
-def parcourirFichier(fichierE,fichierS):
+def parcourirFichier(fichierE,fichierS,entete):
 	
 	#fichierEntre = open(fichierE,"r")
 	fichierSortie = open(fichierS,"a")
@@ -110,8 +110,9 @@ def parcourirFichier(fichierE,fichierS):
 				
 			else :
 				if num_ligne == 0:
-					new_line ="date;period;uri;subId;temperature;luminosity;co2;humidity;annotation\n"
-					fichierSortie.write(new_line)
+					if entete:
+						new_line ="date;period;uri;subId;temperature;luminosity;co2;humidity;annotation\n"
+						fichierSortie.write(new_line)
 					num_ligne += 1
 					
 				else :
@@ -164,8 +165,9 @@ def parcourirFichier(fichierE,fichierS):
 
 listeE = [ "ilot1.csv","ilot2.csv","ilot3.csv","ouest.csv","57.csv","79.csv" ]
 fichierS = "./dataAgregatAnnote.csv"
-
+entete = True
 for nomCapteur in listeE:
 	fichierE = "./fichier" + nomCapteur
-	parcourirFichier(fichierE,fichierS)
+	parcourirFichier(fichierE,fichierS,entete)
+	entete = False
 
