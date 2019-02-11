@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Éditeur de Spyder
+Annotation des données selon un seuil défini par les spécifications du Google doc suivant :
+https://docs.google.com/document/d/1vtwxloreLhoaFz1Pv8dX8Ovy9aDcBi80iWPXRxZvmLY/edit
 
-Ceci est un script temporaire.
 """
 
+# Annotation température
 def temperature(valeur):
     if(valeur < 23.2 and valeur > 20.8):
         return 5
@@ -19,6 +20,7 @@ def temperature(valeur):
     else:
         return 0
 
+# Annotation luminosité
 def luminosite(valeur):
     if(valeur > 600 and valeur < 900):
         return 5
@@ -33,6 +35,7 @@ def luminosite(valeur):
     else:
         return 0
 
+# Annotation Co2
 def co2(valeur):
     if(valeur<400):
         return 5
@@ -46,7 +49,8 @@ def co2(valeur):
         return 1
     else:
         return 0
-    
+
+# Annotation humidité
 def humidite(valeur):
     if(valeur < 55 and valeur > 45):
         return 5
@@ -61,6 +65,7 @@ def humidite(valeur):
     else:
         return 0
 
+# Fonction de calcul de poids sur les différents capteurs (température, luminosité, Co2, humidité)
 def annotationCapteur(valeurTemperature, valeurLuminosite, valeurCo2, valeurHumidite):
     annotationRetour = 0
     poidTemperature = 0.3

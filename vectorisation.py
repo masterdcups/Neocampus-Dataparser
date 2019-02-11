@@ -2,18 +2,19 @@ import csv
 import annotationUnique
 import datetime
 
-
+# Fonction de regroupement des données toutes les 2 minutes
 def deuxMinDEccard (date1,date2):
 
 	temps1 = datetime.datetime(int(date1[0] + date1[1] + date1[2] + date1[3]),int(date1[5] + date1[6]),int(date1[8] + date1[9]),int(date1[11] + date1[12]),int(date1[14] + date1[15] ),int(date1[17] + date1[18]))
 	temps2 = datetime.datetime(int(date2[0] + date2[1] + date2[2] + date2[3]),int(date2[5] + date2[6]),int(date2[8] + date2[9]),int(date2[11] + date2[12]),int(date2[14] + date2[15] ),int(date2[17] + date2[18]))
 	return((temps2 - temps1) < datetime.timedelta(minutes = 2 ))
 
-
+# Fonction de regroupement des données en fonction du jour et de la nuit
 def jourNuit(date):
 	temps = datetime.datetime(int(date[0] + date[1] + date[2] + date[3]),int(date[5] + date[6]),int(date[8] + date[9]),int(date[11] + date[12]),int(date[14] + date[15] ),int(date[17] + date[18]))
 	return temps.hour > 6 and temps.hour < 20
-	
+
+# Fonction de parcours du fichier d'entrée et de sortie
 def parcourirFichier(fichierE,fichierS,entete):
 	
 	#fichierEntre = open(fichierE,"r")
