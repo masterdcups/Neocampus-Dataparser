@@ -5,7 +5,7 @@ https://docs.google.com/document/d/1vtwxloreLhoaFz1Pv8dX8Ovy9aDcBi80iWPXRxZvmLY/
 
 """
 
-#Annotation d'une valeur de température selon les seuils définis
+# Annotation d'une valeur de température selon les seuils définis
 def temperature(valeur):
     if(valeur < 23.2 and valeur > 20.8):
         return 5
@@ -35,7 +35,7 @@ def luminosite(valeur):
     else:
         return 0
 
-#Annotation d'une valeur de co2 selon les seuils définis
+# Annotation d'une valeur de co2 selon les seuils définis
 def co2(valeur):
     if(valeur<400):
         return 5
@@ -50,7 +50,7 @@ def co2(valeur):
     else:
         return 0
 
-#Annotation d'une valeur d'humidité selon les seuils définis
+# Annotation d'une valeur d'humidité selon les seuils définis
 def humidite(valeur):
     if(valeur < 55 and valeur > 45):
         return 5
@@ -65,11 +65,11 @@ def humidite(valeur):
     else:
         return 0
 
-#Annotation d'une situation globale pour un capteur, en regroupant les valeurs trouvées durant des périodes de deux minutes, pour les différentes mesures.
+# Annotation d'une situation globale pour un capteur, en regroupant les valeurs trouvées durant des périodes de deux minutes, pour les différentes mesures.
 def annotationCapteur(valeurTemperature, valeurLuminosite, valeurCo2, valeurHumidite):
     annotationRetour = 0
     # Définition de poids, selon l'importance d'un critère pour l'humain
-    #Poids définis ici après un vote entre les membres du groupe
+    # Poids définis ici après un vote entre les membres du groupe
     poidsTemperature = 0.3
     poidsLuminosite = 0.2
     poidsCo2 = 0.4
