@@ -5,6 +5,9 @@
 Ceci est un script temporaire.
 """
 
+#Annotation d'une valeur de température
+#selon les seuils définis à l'aide
+#de documentation en ligne
 def temperature(valeur):
     if(valeur < 23.2 and valeur > 20.8):
         return 5
@@ -19,6 +22,9 @@ def temperature(valeur):
     else:
         return 0
 
+#Annotation d'une valeur de luminosité
+#selon les seuils définis à l'aide
+#de documentation en ligne
 def luminosite(valeur):
     if(valeur > 600 and valeur < 900):
         return 5
@@ -33,6 +39,9 @@ def luminosite(valeur):
     else:
         return 0
 
+#Annotation d'une valeur de co2
+#selon les seuils définis à l'aide
+#de documentation en ligne
 def co2(valeur):
     if(valeur<400):
         return 5
@@ -47,6 +56,9 @@ def co2(valeur):
     else:
         return 0
     
+#Annotation d'une valeur d'humidité
+#selon les seuils définis à l'aide
+#de documentation en ligne
 def humidite(valeur):
     if(valeur < 55 and valeur > 45):
         return 5
@@ -61,15 +73,20 @@ def humidite(valeur):
     else:
         return 0
 
+#Annotation d'une situation globale pour un capteur,
+# en regroupant les valeurs trouvées durant des périodes
+# de deux minutes, pour les différentes mesures.
 def annotationCapteur(valeurTemperature, valeurLuminosite, valeurCo2, valeurHumidite):
     annotationRetour = 0
-    poidTemperature = 0.3
-    poidLuminosite = 0.2
-    poidCo2 = 0.4
-    poidHumidite = 0.1
-    annotationRetour += poidTemperature * temperature(valeurTemperature)
-    annotationRetour += poidLuminosite * luminosite(valeurLuminosite)
-    annotationRetour += poidCo2 * co2(valeurCo2)
-    annotationRetour += poidHumidite * humidite(valeurHumidite)
+    # Définition de poids, selon l'importance d'un critère pour l'humain
+    #Poids définis ici après un vote entre les membres du groupe
+    poidsTemperature = 0.3
+    poidsLuminosite = 0.2
+    poidsCo2 = 0.4
+    poidsHumidite = 0.1
+    annotationRetour += poidsTemperature * temperature(valeurTemperature)
+    annotationRetour += poidsLuminosite * luminosite(valeurLuminosite)
+    annotationRetour += poidsCo2 * co2(valeurCo2)
+    annotationRetour += poidsHumidite * humidite(valeurHumidite)
 
     return str(annotationRetour);
